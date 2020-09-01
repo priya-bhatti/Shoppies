@@ -31,14 +31,14 @@ function getMovies(searchText) {
                     card.appendChild(img);
                     card.appendChild(title);
                     card.appendChild(year);
-                    if (!nominations.includes(movie.id)) {
-                        var btn = document.createElement("button");
-                        btn.innerHTML = "add to nominations";
-                        btn.setAttribute("id", movie.id);
-                        btn.addEventListener("click", function() { addToNoms(movie.title, movie.release_date.substring(0, 4), movie.id) });
-                        card.appendChild(btn);
-
+                    var btn = document.createElement("button");
+                    btn.innerHTML = "add to nominations";
+                    btn.setAttribute("id", movie.id);
+                    btn.addEventListener("click", function() { addToNoms(movie.title, movie.release_date.substring(0, 4), movie.id) });
+                    if (nominations.includes(movie.id)) {
+                        btn.disabled = true;
                     }
+                    card.appendChild(btn);
                     // output += `
                     // <div class="card">
                     //     <img src="${posterEndpoint + movie.poster_path}" >
@@ -63,7 +63,7 @@ function addToNoms(title, year, id) {
     if (nominations.length < 5) {
         let output = '';
         nominations.push(id);
-        $('#' + id).css('display', 'none');
+        $('#' + id).prop('disabled', true);
         output += `
                     <div class="nom_card" id="${id}_remove">
                         <h5>${title} ${year}</h5>
@@ -81,5 +81,5 @@ function addToNoms(title, year, id) {
 //remove from nominations
 // remove child from .nominations with id_remove
 // remove from nominations array
-// bring back button
+// bring back button -> disabled = false
 //take away banner
