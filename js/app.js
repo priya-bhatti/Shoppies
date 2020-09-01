@@ -58,7 +58,7 @@ function getMovies(searchText) {
 }
 
 
-//adding to list
+//adding to nominations list
 function addToNoms(title, year, id) {
     if (nominations.length < 5) {
         let output = '';
@@ -78,8 +78,22 @@ function addToNoms(title, year, id) {
 
 }
 
-//remove from nominations
-// remove child from .nominations with id_remove
-// remove from nominations array
-// bring back button -> disabled = false
-//take away banner
+//remove from nominations list
+function removeFromNoms(id) {
+    //remove that index item from nominations array
+    const index = nominations.indexOf(parseInt(id));
+    if (index > -1) {
+        nominations.splice(index, 1);
+    }
+
+    //delete html element with {id}_remove
+    $('#' + id + '_remove').remove();
+
+    //disable = false for that movie id button
+    $('#' + id).prop('disabled', false);
+
+    //if nominations lenght < 5 then don't display banner
+    if (nominations.length < 5) {
+        $('#banner').css('display', 'none');
+    }
+}
