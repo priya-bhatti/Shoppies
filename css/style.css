@@ -1,0 +1,8 @@
+.row {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.card img {
+    width: 30%;
+}
