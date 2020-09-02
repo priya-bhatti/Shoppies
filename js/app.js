@@ -32,7 +32,7 @@ function getMovies(searchText) {
                     card.appendChild(title);
                     card.appendChild(year);
                     var btn = document.createElement("button");
-                    btn.innerHTML = "add to nominations";
+                    btn.innerHTML = "+";
                     btn.setAttribute("id", movie.id);
                     btn.addEventListener("click", function() { addToNoms(movie.title, movie.release_date.substring(0, 4), movie.id) });
                     if (nominations.includes(movie.id)) {
@@ -67,7 +67,7 @@ function addToNoms(title, year, id) {
         output += `
                     <div class="nom_card" id="${id}_remove">
                         <h5>${title} ${year}</h5>
-                        <button onclick="removeFromNoms('${id}')">remove</button>
+                        <button onclick="removeFromNoms('${id}')">-</button>
                     </div>
                     `;
         $('.nominations').append(output);

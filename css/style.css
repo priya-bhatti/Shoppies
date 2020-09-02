@@ -87,6 +87,17 @@
     margin-left: 10%;
 }
 
+.nom_card button {
+    border-radius: 50%;
+    background: #ffffff;
+    color: #A1E49B;
+    font-size: 20pt;
+    line-height: 5pt;
+    height: 20pt;
+    width: 20pt;
+    border: none;
+}
+
 #banner {
     margin-bottom: 5%;
     margin-right: 5%;
@@ -125,4 +136,16 @@
 .card h5 {
     margin: 5px 0 5px 0;
     font-family: 'Montserrat', sans-serif;
+}
+
+.card button {
+    border-radius: 50%;
+    background: #A1E49B;
+    color: #ffffff;
+    font-size: 20pt;
+    line-height: 5pt;
+    height: 20pt;
+    width: 20pt;
+    border: none;
+    filter: drop-shadow(4px 4px 4px rgba(0, 0, 0, 0.25));
 }
