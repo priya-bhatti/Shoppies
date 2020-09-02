@@ -1,8 +1,111 @@
+* {
+    box-sizing: border-box;
+}
+
+
+/* HEADER SECTION*/
+
+#header {
+    height: 35%;
+    width: 75%;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: white;
+}
+
+#header img {
+    width: 100vw;
+}
+
+#title {
+    font-family: 'Tenor Sans', sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 64pt;
+    color: #E7BD28;
+    position: absolute;
+    left: 15%;
+    top: -5%;
+}
+
+#subtitle {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 24pt;
+    color: #8C6F05;
+    position: absolute;
+    left: 17%;
+    bottom: 15%;
+}
+
+#searchForm {
+    position: absolute;
+    bottom: 10%;
+    left: 15%;
+}
+
+#searchForm img {
+    width: 4.5%;
+    position: absolute;
+    top: 13%;
+    left: 1%;
+    z-index: 0;
+}
+
+#searchForm input[type=text] {
+    width: 700px;
+    height: 35px;
+    border-radius: 50px;
+    background: #ffffff;
+    border: 1px solid #e7bd28;
+    padding-left: 7%;
+}
+
+
+/* NOMINATIONS TAB */
+
+#nom-tab {
+    height: 100vh;
+    width: 25%;
+    position: fixed;
+    z-index: 2;
+    top: 0;
+    right: 0;
+    background: linear-gradient(196.92deg, rgba(243, 191, 6, 1) 2.85%, rgba(230, 212, 149, 0.4256) 95.58%);
+    overflow-x: hidden;
+    font-family: 'Montserrat', sans-serif;
+}
+
+
+/* MOVIE SEARCH RESULTS */
+
+#searchresults {
+    margin-top: 20%;
+    margin-right: 25%;
+    margin-left: 5%;
+}
+
 .row {
     display: flex;
     flex-wrap: wrap;
 }
 
+
+/* MOVIE CARD */
+
+.card {
+    padding-top: 1rem;
+    width: 200px;
+    text-align: center;
+}
+
 .card img {
-    width: 30%;
+    height: 100px;
+}
+
+.card h5 {
+    margin: 5px 0 5px 0;
+    font-family: 'Montserrat', sans-serif;
 }
