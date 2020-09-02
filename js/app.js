@@ -36,7 +36,7 @@ function getMovies(searchText) {
                     btn.setAttribute("id", movie.id);
                     btn.addEventListener("click", function() { addToNoms(movie.title, movie.release_date.substring(0, 4), movie.id) });
                     if (nominations.includes(movie.id)) {
-                        btn.disabled = true;
+                        btn.style.opacity = 0;
                     }
                     card.appendChild(btn);
                     // output += `
@@ -63,7 +63,7 @@ function addToNoms(title, year, id) {
     if (nominations.length < 5) {
         let output = '';
         nominations.push(id);
-        $('#' + id).prop('disabled', true);
+        $('#' + id).css('opacity', 0);
         output += `
                     <div class="nom_card" id="${id}_remove">
                         <h5>${title} ${year}</h5>
@@ -90,7 +90,7 @@ function removeFromNoms(id) {
     $('#' + id + '_remove').remove();
 
     //disable = false for that movie id button
-    $('#' + id).prop('disabled', false);
+    $('#' + id).css('opacity', 1);
 
     //if nominations lenght < 5 then don't display banner
     if (nominations.length < 5) {
