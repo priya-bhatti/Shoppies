@@ -78,6 +78,23 @@
     font-family: 'Montserrat', sans-serif;
 }
 
+#nom-tab img {
+    margin-top: 5%;
+    margin-left: 5%;
+}
+
+.nom_card {
+    margin-left: 10%;
+}
+
+#banner {
+    margin-bottom: 5%;
+    margin-right: 5%;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+
 
 /* MOVIE SEARCH RESULTS */
 
