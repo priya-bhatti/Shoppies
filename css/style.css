@@ -31,13 +31,12 @@
 }
 
 #subtitle {
-    font-style: normal;
-    font-weight: normal;
-    font-size: 24pt;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14pt;
     color: #8C6F05;
     position: absolute;
     left: 17%;
-    bottom: 15%;
+    bottom: 20%;
 }
 
 #searchForm {
@@ -131,7 +130,6 @@
     margin-top: 20%;
     margin-right: 25%;
     margin-left: 7%;
-    border: 1px solid #E5E5E5;
 }
 
 .row {

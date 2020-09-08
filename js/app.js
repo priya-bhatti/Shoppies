@@ -16,45 +16,39 @@ function getMovies(searchText) {
     fetch(url)
         .then((result) => result.json())
         .then((data) => {
-            let movies = data.results;
-            //let output = '';
-            $.each(movies, (index, movie) => {
-                if (movie.poster_path) {
-                    var card = document.createElement("div");
-                    card.setAttribute("class", "card");
-                    var img = document.createElement("img");
-                    img.src = posterEndpoint + movie.poster_path;
-                    var title = document.createElement("h5");
-                    title.innerHTML = movie.title;
-                    var year = document.createElement("h5");
-                    year.innerHTML = movie.release_date.substring(0, 4);
-                    card.appendChild(img);
-                    card.appendChild(title);
-                    card.appendChild(year);
-                    var btn = document.createElement("button");
-                    btn.innerHTML = "+";
-                    btn.setAttribute("id", movie.id);
-                    btn.addEventListener("click", function() { addToNoms(movie.title, movie.release_date.substring(0, 4), movie.id) });
-                    if (nominations.includes(movie.id)) {
-                        btn.style.opacity = 0;
-                    }
-                    card.appendChild(btn);
-                    // output += `
-                    // <div class="card">
-                    //     <img src="${posterEndpoint + movie.poster_path}" >
-                    //     <h5>${movie.title}</h5>
-                    //     <h5>${movie.release_date.substring(0,4)}</h5>
-                    //     <button id="${movie.id}"onclick="addToNoms('${movie.title}', '${movie.release_date.substring(0,4)}', '${movie.id}')">add to nominations</button>
-                    // </div>
-                    // `;
-                    $('#movies').append(card);
-                }
-            });
-            // $('#movies').append(output);
+            createSearchResults(data);
         })
         .catch((error) => {
             console.log('Error: ', error);
         });
+}
+
+function createSearchResults(data) {
+    let movies = data.results;
+    $.each(movies, (index, movie) => {
+        if (movie.poster_path) {
+            var card = document.createElement("div");
+            card.setAttribute("class", "card");
+            var img = document.createElement("img");
+            img.src = posterEndpoint + movie.poster_path;
+            var title = document.createElement("h5");
+            title.innerHTML = movie.title;
+            var year = document.createElement("h5");
+            year.innerHTML = movie.release_date.substring(0, 4);
+            card.appendChild(img);
+            card.appendChild(title);
+            card.appendChild(year);
+            var btn = document.createElement("button");
+            btn.innerHTML = "+";
+            btn.setAttribute("id", movie.id);
+            btn.addEventListener("click", function() { addToNoms(movie.title, movie.release_date.substring(0, 4), movie.id) });
+            if (nominations.includes(movie.id)) {
+                btn.style.opacity = 0;
+            }
+            card.appendChild(btn);
+            $('#movies').append(card);
+        }
+    });
 }
 
 
@@ -73,7 +67,6 @@ function addToNoms(title, year, id) {
         $('.nominations').append(output);
     }
     if (nominations.length == 5) {
-        // $('#banner').css('display', 'block');
         $('#slide').addClass('show');
     }
 
@@ -95,7 +88,6 @@ function removeFromNoms(id) {
 
     //if nominations lenght < 5 then don't display banner
     if (nominations.length < 5) {
-        // $('#banner').css('display', 'none');
         $('#slide').removeClass('show');
     }
 }
