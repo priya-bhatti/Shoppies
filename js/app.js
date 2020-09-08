@@ -66,14 +66,15 @@ function addToNoms(title, year, id) {
         $('#' + id).css('opacity', 0);
         output += `
                     <div class="nom_card" id="${id}_remove">
-                        <h5>${title} ${year}</h5>
+                        <h5>${title} (${year})</h5>
                         <button onclick="removeFromNoms('${id}')">-</button>
                     </div>
                     `;
         $('.nominations').append(output);
     }
     if (nominations.length == 5) {
-        $('#banner').css('display', 'block');
+        // $('#banner').css('display', 'block');
+        $('#slide').addClass('show');
     }
 
 }
@@ -94,6 +95,7 @@ function removeFromNoms(id) {
 
     //if nominations lenght < 5 then don't display banner
     if (nominations.length < 5) {
-        $('#banner').css('display', 'none');
+        // $('#banner').css('display', 'none');
+        $('#slide').removeClass('show');
     }
 }

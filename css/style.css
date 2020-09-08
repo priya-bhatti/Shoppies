@@ -84,7 +84,9 @@
 }
 
 .nom_card {
-    margin-left: 10%;
+    margin-left: 20%;
+    margin-bottom: 3rem;
+    position: relative;
 }
 
 .nom_card button {
@@ -96,19 +98,29 @@
     height: 20pt;
     width: 20pt;
     border: none;
+    position: absolute;
+    left: -20%;
+    top: 0;
 }
 
 .nom_card button:hover {
     background-color: #A1E49B;
     color: #ffffff;
-    filter: drop-shadow(4px 4px 4px rgba(0, 0, 0, 0.25));
+    /* filter: drop-shadow(4px 4px 4px rgba(0, 0, 0, 0.25)); */
 }
 
-#banner {
+#slide {
     margin-bottom: 5%;
     margin-right: 5%;
     position: absolute;
     bottom: 0;
+    right: -200%;
+    opacity: 0;
+    transition: all .75s ease;
+}
+
+#slide.show {
+    opacity: 1;
     right: 0;
 }
 
@@ -118,8 +130,8 @@
 #searchresults {
     margin-top: 20%;
     margin-right: 25%;
-    margin-left: 5%;
-    background: #E5E5E5;
+    margin-left: 7%;
+    border: 1px solid #E5E5E5;
 }
 
 .row {
@@ -163,5 +175,46 @@
 .card button:hover {
     background-color: #ffffff;
     color: #A1E49B;
-    filter: drop-shadow(4px 4px 4px rgba(0, 0, 0, 0.25));
+}
+
+.card button:before {
+    background: linear-gradient(45deg, #70f064, #ffffff);
+}
+
+.nom_card button:before {
+    background: linear-gradient(45deg, #fe4401, #fcde70);
+}
+
+.card button:before,
+.nom_card button:before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    background-size: 400%;
+    z-index: -1;
+    filter: blur(5px);
+    width: calc(100% + 4px);
+    height: calc(100% + 4px);
+    animation: glowing 20s linear infinite;
+    opacity: 0;
+    transition: opacity .1s ease-in-out;
+    border-radius: 50%;
+}
+
+.card button:hover:before,
+.nom_card button:hover:before {
+    opacity: 1;
+}
+
+@keyframes glowing {
+    0% {
+        background-position: 0 0;
+    }
+    50% {
+        background-position: 400% 0;
+    }
+    100% {
+        background-position: 0 0;
+    }
 }
